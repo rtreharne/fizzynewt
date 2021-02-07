@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b9a2a717-bf6e-40f0-99f3-ffb20d31de85" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/api/admin.py" afterPath="$PROJECT_DIR$/backend/api/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/api/models.py" afterPath="$PROJECT_DIR$/backend/api/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/package-lock.json" afterPath="$PROJECT_DIR$/frontend/package-lock.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/components/TestButton.js" afterPath="$PROJECT_DIR$/frontend/src/components/TestButton.js" />
-    </list>
+    <list default="true" id="b9a2a717-bf6e-40f0-99f3-ffb20d31de85" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
