@@ -75,7 +75,7 @@ class Log(models.Model):
     session_type = models.ForeignKey(SessionType, on_delete=models.PROTECT)
     start = models.DateTimeField()
     finish = models.DateTimeField()
-    message = models.TextField(max_length=10000, default=False, null=True)
+    message = models.TextField(max_length=10000, default=False, blank=True, null=True)
 
     def __str__(self):
         return self.course
