@@ -5,7 +5,8 @@ from api import views
 
 router = routers.DefaultRouter()
 router.register(r"pings", views.PingView, 'ping')
-router.register(r"logs", views.LogView, 'log')
+router.register(r"newts", views.NewtView, 'newt')
+router.register(r"institutions", views.InstitutionView, 'institution')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

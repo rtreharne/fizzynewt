@@ -30,7 +30,7 @@ class UserAdmin(admin.ModelAdmin):
 class SessionTypeAdmin(admin.ModelAdmin):
     list_display = ('name',)
 
-class LogAdmin(admin.ModelAdmin):
+class NewtAdmin(admin.ModelAdmin):
     list_display = ('course',
                     'newt_code',
                     'session_type',
@@ -51,6 +51,6 @@ admin.site.register(Course, CourseAdmin)
 admin.site.register(UserType, UserTypeAdmin)
 admin.site.register(User, UserAdmin)
 admin.site.register(SessionType, SessionTypeAdmin)
-admin.site.register(Log, LogAdmin)
+admin.site.register(Newt, NewtAdmin)
 
 

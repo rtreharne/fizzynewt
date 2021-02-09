@@ -69,7 +69,7 @@ class SessionType(models.Model):
         return self.name
 
 
-class Log(models.Model):
+class Newt(models.Model):
     course = models.ForeignKey(Course, on_delete=models.PROTECT)
     newt_code = models.CharField(max_length=128)
     session_type = models.ForeignKey(SessionType, on_delete=models.PROTECT)
