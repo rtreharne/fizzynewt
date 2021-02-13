@@ -130,3 +130,13 @@ CORS_ORIGIN_WHITELIST = [
     'http://localhost:8000',
     'http://localhost:8080',
 ]
+
+from corsheaders.defaults import default_headers
+
+CORS_ALLOW_HEADERS = list(default_headers) + [
+    'X-CSRFTOKEN',
+]
+
+REST_FRAMEWORK = {
+    'DATETIME_INPUT_FORMATS': ['iso-8601', "%d-%m-%Y %H:%M"]
+}
