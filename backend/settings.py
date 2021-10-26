@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import django_heroku
+import os
+import sys
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,10 +23,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '&!8tb804juqu=5fc6d=o(g6r-df5q0ce4tlie$8i-t@cavg*0j'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if sys.argv[1] == 'runserver':
+    print('Development Server')
+
+    DEBUG = True
+else:
+    DEBUG = False
+    SECURE_SSL_REDIRECT = True
 
 ALLOWED_HOSTS = ["*"]
 
