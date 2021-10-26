@@ -8,6 +8,7 @@ django = "*"
 djangorestframework = "*"
 django-cors-headers = "*"
 djangorestframework-simplejwt = "*"
+django-regex-field = "*"
 
 [dev-packages]
 neovim = "*"
