@@ -9,6 +9,11 @@ djangorestframework = "*"
 django-cors-headers = "*"
 djangorestframework-simplejwt = "*"
 django-regex-field = "*"
+python-dotenv = "*"
+whitenoise = "*"
+django-heroku = "*"
+gunicorn = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 neovim = "*"
