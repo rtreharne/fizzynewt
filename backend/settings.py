@@ -36,6 +36,8 @@ else:
 
 ALLOWED_HOSTS = ["*"]
 
+AUTH_USER_MODEL = 'authentication.User'
+
 
 # Application definition
 
@@ -49,6 +51,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'api',
+    'authentication'
 ]
 
 MIDDLEWARE = [
@@ -92,6 +95,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
+}
+REST_FRAMEWORK = {
+    "NON_FIELD_ERRORS_KEY": "error",
 }
 
 
