@@ -27,11 +27,13 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 if sys.argv[1] == 'runserver':
+    EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
+    EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
     print('Development Server')
 
     DEBUG = True
 else:
-    DEBUG = True
+    DEBUG = False
     SECURE_SSL_REDIRECT = True
 
 ALLOWED_HOSTS = ["*"]
@@ -98,6 +100,9 @@ DATABASES = {
 }
 REST_FRAMEWORK = {
     "NON_FIELD_ERRORS_KEY": "error",
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+            'rest_framework_simplejwt.authentication.JWTAuthentication',
+        )
 }
 
 
@@ -148,3 +153,10 @@ CORS_ORIGIN_WHITELIST = [
 ]
 
 django_heroku.settings(locals())
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+
+
+
