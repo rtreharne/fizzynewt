@@ -33,7 +33,7 @@ if sys.argv[1] == 'runserver':
 
     DEBUG = True
 else:
-    DEBUG = False
+    DEBUG = True
     SECURE_SSL_REDIRECT = True
 
 ALLOWED_HOSTS = ["*"]
