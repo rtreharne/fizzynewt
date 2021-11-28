@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import User
+from institutions.models import Institution
 from django.contrib import auth
 from rest_framework.exceptions import AuthenticationFailed
 
@@ -17,6 +18,15 @@ class RegisterSerializer(serializers.ModelSerializer):
 
         if not username.isalnum():
             raise serializers.ValidationError('The username should only contain alphanumeric characters.')
+
+        email_domains = []
+        for institution in Institution.objects.all():
+            email_domains.extend(''.join(institution.email_domain.split()).split(","))
+
+        if "@" + email.split("@")[1] not in email_domains:
+            print("@" + email.split("@")[1])
+            print(email_domains)
+            raise serializers.ValidationError('The email address is not valid.')
 
         return attrs
 
