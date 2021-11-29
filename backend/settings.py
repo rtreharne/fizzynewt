@@ -26,12 +26,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if sys.argv[1] == 'runserver':
+try:
+    if sys.argv[1] == 'runserver':
 
-    print('Development Server')
+        print('Development Server')
 
-    DEBUG = True
-else:
+        DEBUG = True
+except:
     DEBUG = False
     SECURE_SSL_REDIRECT = True
 
