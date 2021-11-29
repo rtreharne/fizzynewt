@@ -13,7 +13,7 @@ class CourseListAPIView(ListCreateAPIView):
         return serializer.save(institution = self.request.user.institution)
 
     def get_queryset(self):
-        return self.queryset.all()
+        return self.queryset.filter(institution=self.request.user.institution)
 
 class CourseDetailAPIView(RetrieveUpdateDestroyAPIView):
     serializer_class = CourseSerializer
@@ -23,4 +23,4 @@ class CourseDetailAPIView(RetrieveUpdateDestroyAPIView):
 
 
     def get_queryset(self):
-        return self.queryset.all()
+        return self.queryset.filter(institution=self.request.user.institution)
