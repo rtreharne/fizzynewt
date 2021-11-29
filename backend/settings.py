@@ -31,9 +31,9 @@ try:
 
         print('Development Server')
 
-        DEBUG = False
+        DEBUG = True
 except:
-    DEBUG = False
+    DEBUG = True
     SECURE_SSL_REDIRECT = True
 
 ALLOWED_HOSTS = ["*"]
