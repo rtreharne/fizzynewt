@@ -26,7 +26,7 @@ schema_view = get_schema_view(
 #router.register(r"pings", views.PingView, 'ping')
 
 urlpatterns = [
-    #path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
     #path('api/', include(router.urls)),
     path('auth/', include('authentication.urls')),
     path('institutions/', include('institutions.urls')),

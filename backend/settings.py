@@ -54,7 +54,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'authentication',
-    'institutions'
+    'institutions',
 ]
 
 SWAGGER_SETTINGS = {
@@ -115,7 +115,6 @@ REST_FRAMEWORK = {
             'rest_framework_simplejwt.authentication.JWTAuthentication',
         )
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
