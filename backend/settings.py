@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'authentication',
     'institutions',
+    'courses'
 ]
 
 SWAGGER_SETTINGS = {
