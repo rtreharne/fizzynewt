@@ -1,6 +1,16 @@
 from django.db import models
 from django.contrib.auth.models import (AbstractBaseUser, BaseUserManager, PermissionsMixin)
 from rest_framework_simplejwt.tokens import RefreshToken
+from institutions.models import Institution
+
+def get_institution_from_email_domain(email):
+    institutions = Institution.objects.all()
+    email_domain = "@" + email.split("@")[1]
+    for institution in institutions:
+        if email_domain in institution.email_domain:
+            return institution
+    else:
+        return None
 
 class UserManager(BaseUserManager):
     def create_user(self, username, email, password=None):
@@ -11,7 +21,9 @@ class UserManager(BaseUserManager):
         if email is None:
             raise TypeError('Users should have an email.')
 
-        user = self.model(username=username, email=self.normalize_email(email))
+        institution = get_institution_from_email_domain(email)
+
+        user = self.model(username=username, email=self.normalize_email(email), institution=institution)
         user.set_password(password)
         user.save()
 
@@ -39,6 +51,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    institution = models.ForeignKey(to=Institution, on_delete=models.PROTECT, blank=True, null=True)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']

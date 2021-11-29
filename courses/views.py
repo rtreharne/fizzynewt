@@ -10,7 +10,7 @@ class CourseListAPIView(ListCreateAPIView):
     permission_classes = (permissions.IsAuthenticated,)
 
     def perform_create(self, serializer):
-        return serializer.save()
+        return serializer.save(institution = self.request.user.institution)
 
     def get_queryset(self):
         return self.queryset.all()
@@ -21,8 +21,6 @@ class CourseDetailAPIView(RetrieveUpdateDestroyAPIView):
     permission_classes = (permissions.IsAuthenticated,)
     lookup_field = "id"
 
-    def perform_create(self, serializer):
-        return serializer.save()
 
     def get_queryset(self):
         return self.queryset.all()
