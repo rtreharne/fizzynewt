@@ -31,7 +31,7 @@ try:
 
         print('Development Server')
 
-        DEBUG = True
+        DEBUG = False
 except:
     DEBUG = False
     SECURE_SSL_REDIRECT = True
