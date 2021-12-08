@@ -14,6 +14,9 @@ class CourseSerializer(serializers.ModelSerializer):
         institution = user.institution
         code = attrs.get('code', None)
 
+        if institution is None:
+            raise serializers.ValidationError('User is not associated with an institution')
+
         try:
             obj = Course.objects.get(code=code, institution=institution)
             raise serializers.ValidationError('This course already exists at {0}'.format(institution.name))

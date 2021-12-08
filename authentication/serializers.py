@@ -31,6 +31,7 @@ class RegisterSerializer(serializers.ModelSerializer):
         return attrs
 
     def create(self, validated_data):
+
         return User.objects.create_user(**validated_data)
 
 class EmailVerificationSerializer(serializers.ModelSerializer):
@@ -70,4 +71,29 @@ class LoginSerializer(serializers.ModelSerializer):
             'username': user.username,
             'tokens': user.tokens()
         }
+
+class UserSerializer(serializers.ModelSerializer):
+    #is_verified = serializers.BooleanField()
+    #is_staff = serializers.BooleanField()
+
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'email', 'is_verified', 'is_staff']
+
+    def validate(self, attrs):
+
+        user = self.context.get('request', None).user
+        institution = user.institution
+        email = attrs.get('email', None)
+        if email:
+            attrs["institution"] = institution
+
+            email_domain = "@" + email.split("@")[1]
+
+            if email_domain in institution.email_domain:
+                return attrs
+            else:
+                raise serializers.ValidationError('User email is not associated with {0}'.format(institution))
+        return attrs
+
 
