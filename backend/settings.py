@@ -58,7 +58,8 @@ INSTALLED_APPS = [
     'authentication',
     'institutions',
     'courses',
-    'enrollments'
+    'enrollments',
+    'schools'
 ]
 
 SIMPLE_JWT = {

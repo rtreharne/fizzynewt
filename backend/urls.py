@@ -32,5 +32,6 @@ urlpatterns = [
     path('institutions/', include('institutions.urls')),
     path('courses/', include('courses.urls')),
     path('enrollments/', include('enrollments.urls')),
+    path('schools/', include('schools.urls')),
     path('', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui')
 ]
