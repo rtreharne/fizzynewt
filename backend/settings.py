@@ -57,7 +57,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'authentication',
     'institutions',
-    'courses'
+    'courses',
+    'enrollments'
 ]
 
 SIMPLE_JWT = {
